@@ -3,6 +3,7 @@ import { graphql } from 'gatsby'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
 import { Layout, Hero, ArticlePreview } from 'components'
+import { Box } from '@chakra-ui/core'
 
 class RootIndex extends React.Component {
   render() {
@@ -14,8 +15,13 @@ class RootIndex extends React.Component {
       <Layout location={this.props.location} >
         <div style={{ background: '#fff' }}>
           <Helmet title={siteTitle} />
-          <Hero data={author.node} />
-          <div className="wrapper">
+          <Hero data={{
+            imageSrc: "home.jpg",
+            heading: "Break Tales",
+            subHeading: "We're on a break !!",
+            description: "Chronicling the (mis)adventures of a techie mini retirement."
+          }} />
+          <Box bg="gray.900" color="white" className="wrapper">
             <h2 className="section-headline">Recent articles</h2>
             <ul className="article-list">
               {posts.map(({ node }) => {
@@ -26,7 +32,7 @@ class RootIndex extends React.Component {
                 )
               })}
             </ul>
-          </div>
+          </Box>
         </div>
       </Layout>
     )
@@ -71,12 +77,7 @@ export const pageQuery = graphql`
           }
           title
           heroImage: image {
-            fluid(
-              maxWidth: 1180
-              maxHeight: 480
-              resizingBehavior: PAD
-              background: "rgb:000000"
-            ) {
+            fluid {
               ...GatsbyContentfulFluid_tracedSVG
             }
           }
