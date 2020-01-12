@@ -2,10 +2,8 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 import get from 'lodash/get'
-import Img from 'gatsby-image'
-import Layout from '../components/layout'
-
-import heroStyles from '../components/hero.module.css'
+import { Layout, Hero } from 'components'
+import { Box } from '@chakra-ui/core'
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -16,10 +14,11 @@ class BlogPostTemplate extends React.Component {
       <Layout location={this.props.location} >
         <div style={{ background: '#fff' }}>
           <Helmet title={`${post.title} | ${siteTitle}`} />
-          <div className={heroStyles.hero}>
-            <Img className={heroStyles.heroImage} alt={post.title} fluid={post.heroImage.fluid} />
-          </div>
-          <div className="wrapper">
+          <Hero data={{
+            imageSrc: post.heroImage.fluid.src,
+            heading: post.title
+          }} />
+          <Box bg="gray.900" color="white" className="wrapper">
             <h1 className="section-headline">{post.title}</h1>
             <p
               style={{
@@ -33,7 +32,7 @@ class BlogPostTemplate extends React.Component {
                 __html: post.body.childMarkdownRemark.html,
               }}
             />
-          </div>
+          </Box>
         </div>
       </Layout>
     )
@@ -53,7 +52,7 @@ export const pageQuery = graphql`
       title
       publishDate(formatString: "MMMM Do, YYYY")
       heroImage {
-        fluid(maxWidth: 1180, background: "rgb:000000") {
+        fluid {
           ...GatsbyContentfulFluid_tracedSVG
         }
       }

@@ -1,17 +1,11 @@
-@font-face {
-  font-family: "Avenir";
-  font-weight: 400;
-  font-style: normal;
-  src: url("/avenir-400.woff2") format("woff2");
-  font-display: swap;
-}
+@import url('https://fonts.googleapis.com/css?family=Dancing+Script:400,500,600,700|PT+Serif&display=swap');
 
 body {
-  font-family: "Avenir", Tahoma, Arial, Helvetica, sans-serif;
+  font-family: "PT Serif", sans-serif;
   font-size: 1em;
   line-height: 1.65;
-  color: #373F49;
-  background: #eee;
+  color: #ffffff;
+  background: #171923;
   margin: 0;
 }
 
@@ -20,21 +14,52 @@ img {
   width: 100%;
 }
 
-h1,
-h2,
-h3 {
+h1 {
+  font-size: 2.25em;
+  margin-bottom: 2em;
+}
+h2 {
   font-size: 2em;
+  margin-bottom: 1.5em;
+}
+h3 {
+  font-size: 1.75em;
+  margin-bottom: 1.5em;
+}
+h4 {
+  font-size: 1.5em;
+  margin-bottom: 1em;
+}
+h5 {
+  font-size: 1.25em;
+  margin-bottom: 1em;
+}
+h6 {
+  font-size: 1em;
+  margin-bottom: 1em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Dancing Script", cursive;
   font-weight: normal;
+  line-height: 1em;
 }
 
 a {
   color: currentColor;
+  text-decoration: none;
+  transition-duration: 200ms;
+}
+
+a:hover {
+  text-decoration: underline;
 }
 
 .wrapper {
-  width: calc(100% - 10vmin);
+  width: 100%;
   margin: 0 auto;
-  padding: 5vmin 0;
+  padding: 5vmin;
+  box-sizing: border-box;
 }
 
 /**

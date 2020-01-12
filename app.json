@@ -1,13 +1,16 @@
 {
-  "name": "Contentful Gatsby Starter",
-  "description": "Gatsby starter for a Contentful project.",
+  "name": "Break Tales",
+  "description": "We're on a break !!",
   "keywords": [
-    "contentful",
-    "gatsby",
-    "static",
-    "ssg"
+    "break",
+    "tales",
+    "vacation",
+    "travel",
+    "holiday",
+    "family",
+    "siblings"
   ],
-  "repository": "https://github.com/contentful-userland/gatsby-contentful-starter",
+  "repository": "https://github.com/sharathnraj/breaktales",
   "success_url": "/",
   "buildpacks": [
     {

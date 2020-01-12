@@ -1,20 +1,26 @@
+nav {
+  display: flex;
+  justify-content: space-between;
+}
+
 .navigation {
   display: flex;
   justify-content: center;
   list-style: none;
   padding: 0;
   margin: 0;
-  height: 20vh;
-  max-height: 100px;
-  font-size: 1.25em;
 }
 
 .navigationItem {
   display: inline-flex;
   align-items: center;
-  margin: 0 1em;
 }
 
 .navigationItem a {
+  padding: 1em;
+  text-transform: uppercase;
+  text-decoration: none;
   color: currentColor;
+  display: flex;
+  align-items: center;
 }

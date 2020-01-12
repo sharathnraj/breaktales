@@ -2,9 +2,8 @@ import React from 'react'
 import { Link, graphql } from 'gatsby'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
-import styles from './blog.module.css'
-import Layout from "../components/layout"
-import ArticlePreview from '../components/article-preview'
+import { Layout, ArticlePreview } from 'components'
+import { Box } from '@chakra-ui/core'
 
 class BlogIndex extends React.Component {
   render() {
@@ -15,11 +14,8 @@ class BlogIndex extends React.Component {
       <Layout location={this.props.location} >
         <div style={{ background: '#fff' }}>
           <Helmet title={siteTitle} />
-          <div className={styles.hero}>
-            Blog
-          </div>
-          <div className="wrapper">
-            <h2 className="section-headline">Recent articles</h2>
+          <Box bg="gray.900" color="white" className="wrapper">
+            {/* <h2 className="section-headline">Recent articles</h2> */}
             <ul className="article-list">
               {posts.map(({ node }) => {
                 return (
@@ -29,7 +25,7 @@ class BlogIndex extends React.Component {
                 )
               })}
             </ul>
-          </div>
+          </Box>
         </div>
       </Layout>
     )
