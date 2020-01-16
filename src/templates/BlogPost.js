@@ -12,7 +12,7 @@ class BlogPostTemplate extends React.Component {
 
     return (
       <Layout location={this.props.location} >
-        <div style={{ background: '#fff' }}>
+        <div>
           <Helmet title={`${post.title} | ${siteTitle}`} />
           <Hero data={{
             imageSrc: post.heroImage.fluid.src,
@@ -20,13 +20,15 @@ class BlogPostTemplate extends React.Component {
           }} />
           <Box bg="gray.900" color="white" className="wrapper">
             <h1 className="section-headline">{post.title}</h1>
-            <p
-              style={{
-                display: 'block',
-              }}
-            >
+            <p style={{ display: 'block' }}>
               {post.publishDate}
             </p>
+            {
+              post.instagram &&
+              <p className="instagram">
+                <img src={`https://www.instagram.com/p/${post.instagram}/media/`} />
+              </p>
+            }
             <div
               dangerouslySetInnerHTML={{
                 __html: post.body.childMarkdownRemark.html,
@@ -56,6 +58,7 @@ export const pageQuery = graphql`
           ...GatsbyContentfulFluid_tracedSVG
         }
       }
+      instagram
       body {
         childMarkdownRemark {
           html
