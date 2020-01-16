@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css?family=Dancing+Script:400,500,600,700|PT+Serif&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Cormorant+Garamond:700i|Fira+Sans&display=swap');
 
 body {
-  font-family: "PT Serif", sans-serif;
+  font-family: "Fira Sans", sans-serif;
   font-size: 1em;
   line-height: 1.65;
   color: #ffffff;
@@ -15,32 +15,32 @@ img {
 }
 
 h1 {
-  font-size: 2.25em;
+  font-size: 3em;
   margin-bottom: 2em;
 }
 h2 {
-  font-size: 2em;
+  font-size: 2.75em;
   margin-bottom: 1.5em;
 }
 h3 {
-  font-size: 1.75em;
+  font-size: 2.5em;
   margin-bottom: 1.5em;
 }
 h4 {
-  font-size: 1.5em;
+  font-size: 2em;
   margin-bottom: 1em;
 }
 h5 {
-  font-size: 1.25em;
+  font-size: 1.75em;
   margin-bottom: 1em;
 }
 h6 {
-  font-size: 1em;
+  font-size: 1.5em;
   margin-bottom: 1em;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Dancing Script", cursive;
+  font-family: "Cormorant Garamond", cursive;
   font-weight: normal;
   line-height: 1em;
 }
@@ -81,6 +81,23 @@ a:hover {
   padding: 0 0 0.4em 0;
   margin: 0 0 5vmin 0;
   border-bottom: 1px solid #ddd;
+}
+
+/**
+ *
+ */
+.instagram img {
+  margin: 0 auto;
+  max-width: 100%;
+  width: 320px;
+  padding: 16px 0;
+}
+
+@media(min-width: 768px) {
+  .instagram img {
+    float: right;
+    padding: 0 0 16px 16px;
+  }
 }
 
 /**

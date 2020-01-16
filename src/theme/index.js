@@ -6,8 +6,8 @@ const customTheme = {
   ...theme,
   fonts: {
     ...theme.fonts,
-    body: "PT Serif, sans-serif",
-    heading: "Dancing Script, cursive"
+    body: "Fira Sans, sans-serif",
+    heading: "Cormorant Garamond, cursive"
   },
   colors: {
     ...theme.colors

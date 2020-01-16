@@ -5,7 +5,6 @@
   height: 50vh;
   background-repeat: no-repeat;
   background-size: 50% 50%;
-  background-attachment: fixed;
   background-size: cover;
 }
 
@@ -25,6 +24,10 @@
 }
 
 @media(min-width: 768px) {
+  .hero {
+    background-attachment: fixed;
+  }
+
   .heroDetails {
     font-size: 20px;
   }

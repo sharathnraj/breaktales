@@ -1,3 +1,19 @@
+.previewImage {
+  height: 250px;
+}
+
+@media(min-width: 768px) {
+  .previewImage {
+    height: 300px;
+  }
+}
+
+@media(min-width: 1024px) {
+  .previewImage {
+    height: 400px;
+  }
+}
+
 .previewTitle {
   margin: 1em 0;
 }
