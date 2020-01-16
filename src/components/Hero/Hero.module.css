@@ -2,7 +2,7 @@
   position: relative;
   color: #fff;
   text-align: center;
-  height: 50vh;
+  height: 35vh;
   background-repeat: no-repeat;
   background-size: 50% 50%;
   background-size: cover;
@@ -26,6 +26,7 @@
 @media(min-width: 768px) {
   .hero {
     background-attachment: fixed;
+    height: 50vh;
   }
 
   .heroDetails {

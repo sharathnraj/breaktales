@@ -2,14 +2,14 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
-import { Layout, Hero, ArticlePreview } from 'components'
+import { Layout, Hero, ArticlePreview, PersonPreview } from 'components'
 import { Box } from '@chakra-ui/core'
 
 class RootIndex extends React.Component {
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
     const posts = get(this, 'props.data.allContentfulBlogPost.edges')
-    const [author] = get(this, 'props.data.allContentfulPerson.edges')
+    const persons = get(this, 'props.data.allContentfulPerson.edges')
 
     return (
       <Layout location={this.props.location} >
@@ -28,6 +28,18 @@ class RootIndex extends React.Component {
                 return (
                   <li key={node.slug}>
                     <ArticlePreview article={node} />
+                  </li>
+                )
+              })}
+            </ul>
+          </Box>
+          <Box bg="red.900" color="white" className="wrapper">
+            <h2 className="section-headline">About us</h2>
+            <ul className="article-list">
+              {persons.map(({ node }) => {
+                return (
+                  <li key={node.slug}>
+                    <PersonPreview person={node} />
                   </li>
                 )
               })}
@@ -68,7 +80,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    allContentfulPerson(filter: { contentful_id: { eq: "15jwOBqpxqSAOy2eOO4S0m" } }) {
+    allContentfulPerson(sort: { fields: [updatedAt], order: ASC }) {
       edges {
         node {
           name
@@ -76,7 +88,7 @@ export const pageQuery = graphql`
             shortBio
           }
           title
-          heroImage: image {
+          image {
             fluid {
               ...GatsbyContentfulFluid_tracedSVG
             }

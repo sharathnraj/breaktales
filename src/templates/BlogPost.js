@@ -15,7 +15,7 @@ class BlogPostTemplate extends React.Component {
         <div>
           <Helmet title={`${post.title} | ${siteTitle}`} />
           <Hero data={{
-            imageSrc: post.heroImage.fluid.src,
+            imageSrc: post.heroImage.file.url,
             heading: post.title
           }} />
           <Box bg="gray.900" color="white" className="wrapper">
@@ -54,6 +54,9 @@ export const pageQuery = graphql`
       title
       publishDate(formatString: "MMMM Do, YYYY")
       heroImage {
+        file {
+          url
+        }
         fluid {
           ...GatsbyContentfulFluid_tracedSVG
         }
