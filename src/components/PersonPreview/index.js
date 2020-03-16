@@ -1,6 +1,5 @@
 import React from 'react'
-import { Link } from 'gatsby'
-import { Image, Box, Stack } from "@chakra-ui/core"
+import { Image, Box } from "@chakra-ui/core"
 
 import styles from './PersonPreview.module.css'
 
