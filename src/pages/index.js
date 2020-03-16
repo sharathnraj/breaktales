@@ -3,7 +3,7 @@ import { graphql } from 'gatsby'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
 import { Layout, Hero, ArticlePreview, PersonPreview } from 'components'
-import { Box } from '@chakra-ui/core'
+import { SimpleGrid, Box } from '@chakra-ui/core'
 
 class RootIndex extends React.Component {
   render() {
@@ -23,27 +23,27 @@ class RootIndex extends React.Component {
           }} />
           <Box bg="gray.900" color="white" className="wrapper">
             <h2 className="section-headline">Recent articles</h2>
-            <ul className="article-list">
+            <SimpleGrid columns={{ sm: 1, md: 2, lg: 3 }} spacing={4}>
               {posts.map(({ node }) => {
                 return (
-                  <li key={node.slug}>
+                  <Box key={node.slug}>
                     <ArticlePreview article={node} />
-                  </li>
+                  </Box>
                 )
               })}
-            </ul>
+            </SimpleGrid>
           </Box>
           <Box bg="red.900" color="white" className="wrapper">
             <h2 className="section-headline">About us</h2>
-            <ul className="article-list">
+            <SimpleGrid columns={{ sm: 1, md: 2 }} spacing={4}>
               {persons.map(({ node }) => {
                 return (
-                  <li key={node.slug}>
+                  <Box key={node.slug}>
                     <PersonPreview person={node} />
-                  </li>
+                  </Box>
                 )
               })}
-            </ul>
+            </SimpleGrid>
           </Box>
         </div>
       </Layout>

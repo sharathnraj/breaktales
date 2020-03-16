@@ -20,9 +20,16 @@ class BlogPostTemplate extends React.Component {
           }} />
           <Box bg="gray.900" color="white" className="wrapper">
             <h1 className="section-headline">{post.title}</h1>
-            <p style={{ display: 'block' }}>
+            <Box
+              display="inline-block"
+              textTransform="uppercase"
+              padding="0.5em 1em"
+              bg="#ffffff"
+              color="#171923">
               {post.publishDate}
-            </p>
+            </Box>
+            <br />
+            <br />
             {
               post.instagram &&
               <p className="instagram">
@@ -31,7 +38,7 @@ class BlogPostTemplate extends React.Component {
             }
             <div
               dangerouslySetInnerHTML={{
-                __html: post.body.childMarkdownRemark.html,
+                __html: post.body.childMarkdownRemark.html.replace(/\n/g, "<br />"),
               }}
             />
           </Box>
