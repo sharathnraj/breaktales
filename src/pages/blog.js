@@ -1,14 +1,14 @@
 import React from 'react'
-import { Link, graphql } from 'gatsby'
-import get from 'lodash/get'
+import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 import { Layout, ArticlePreview } from 'components'
-import { Box } from '@chakra-ui/core'
+import { SimpleGrid, Box } from '@chakra-ui/core'
 
 class BlogIndex extends React.Component {
   render() {
-    const siteTitle = get(this, 'props.data.site.siteMetadata.title')
-    const posts = get(this, 'props.data.allContentfulBlogPost.edges')
+    const { data } = this.props
+    const siteTitle = data.site.siteMetadata.title
+    const posts = data.allContentfulBlogPost.edges
 
     return (
       <Layout location={this.props.location} >
@@ -16,15 +16,15 @@ class BlogIndex extends React.Component {
           <Helmet title={siteTitle} />
           <Box bg="gray.900" color="white" className="wrapper">
             {/* <h2 className="section-headline">Recent articles</h2> */}
-            <ul className="article-list">
+            <SimpleGrid columns={{ sm: 1, md: 2, lg: 3 }} spacing={4}>
               {posts.map(({ node }) => {
                 return (
-                  <li key={node.slug}>
+                  <Box key={node.slug}>
                     <ArticlePreview article={node} />
-                  </li>
+                  </Box>
                 )
               })}
-            </ul>
+            </SimpleGrid>
           </Box>
         </div>
       </Layout>
