@@ -1,15 +1,15 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import get from 'lodash/get'
 import Helmet from 'react-helmet'
 import { Layout, Hero, ArticlePreview, PersonPreview } from 'components'
 import { SimpleGrid, Box } from '@chakra-ui/core'
 
 class RootIndex extends React.Component {
   render() {
-    const siteTitle = get(this, 'props.data.site.siteMetadata.title')
-    const posts = get(this, 'props.data.allContentfulBlogPost.edges')
-    const persons = get(this, 'props.data.allContentfulPerson.edges')
+    const { data } = this.props
+    const siteTitle = data.site.siteMetadata.title
+    const posts = data.allContentfulBlogPost.edges
+    const persons = data.allContentfulPerson.edges
 
     return (
       <Layout location={this.props.location} >

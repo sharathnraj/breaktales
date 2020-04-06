@@ -1,14 +1,14 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
-import get from 'lodash/get'
 import { Layout, Hero } from 'components'
 import { Box } from '@chakra-ui/core'
 
 class BlogPostTemplate extends React.Component {
   render() {
-    const post = get(this.props, 'data.contentfulBlogPost')
-    const siteTitle = get(this.props, 'data.site.siteMetadata.title')
+    const { data } = this.props
+    const post = data.contentfulBlogPost
+    const siteTitle = data.site.siteMetadata.title
 
     return (
       <Layout location={this.props.location} >
@@ -28,6 +28,18 @@ class BlogPostTemplate extends React.Component {
               color="#171923">
               {post.publishDate}
             </Box>
+            {
+              post.author &&
+              <Box
+                display="inline-block"
+                textTransform="uppercase"
+                padding="0.5em 1em"
+                marginLeft="1em"
+                bg="red.500"
+                color="#ffffff">
+                {post.author.name}
+              </Box>
+            }
             <br />
             <br />
             {
@@ -73,6 +85,9 @@ export const pageQuery = graphql`
         childMarkdownRemark {
           html
         }
+      }
+      author {
+        name
       }
     }
   }
