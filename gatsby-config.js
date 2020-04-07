@@ -44,31 +44,30 @@ module.exports = {
         `,
         feeds: [
           {
-            serialize: ({ query: { site, allSitePage } }) => {
-              return allSitePage.edges.map(edge => {
+            serialize: ({ query: { site, allContentfulBlogPost } }) => {
+              return allContentfulBlogPost.edges.map(edge => {
                 return Object.assign({}, edge.node.frontmatter, {
-                  description: edge.node.path,
-                  url: site.siteMetadata.siteUrl + edge.node.path,
-                  guid: edge.node.path
+                  title: edge.node.title,
+                  url: site.siteMetadata.siteUrl + "/blog/" + edge.node.slug,
+                  guid: edge.node.id
                 })
               })
             },
             query: `
               {
-                allSitePage {
+                allContentfulBlogPost {
                   edges {
                     node {
-                      path
-                      context {
-                        slug
-                      }
+                      id
+                      title
+                      slug
                     }
                   }
                 }
               }
             `,
             output: "/rss.xml",
-            title: "Your Site's RSS Feed",
+            title: "BreakTales.Life RSS Feed",
           }
         ]
       }

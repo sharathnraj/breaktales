@@ -18,8 +18,7 @@ class RootIndex extends React.Component {
           <Hero data={{
             imageSrc: "home.jpg",
             heading: "Break Tales",
-            subHeading: "We're on a break !!",
-            description: "Chronicling the (mis)adventures of a techie mini retirement."
+            subHeading: "Chronicling the (mis)adventures of a techie mini retirement."
           }} />
           <Box bg="gray.900" color="white" className="wrapper">
             <h2 className="section-headline">Recent articles</h2>
