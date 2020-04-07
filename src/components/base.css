@@ -112,3 +112,38 @@ a:hover {
 .list-inline li {
   display: inline-block;
 }
+
+blockquote {
+  position: relative;
+  margin: 0 auto;
+  padding: 0 2em;
+  text-align: center;
+  font-size: 32px;
+  display: inline-block;
+}
+
+blockquote br {
+  display: none;
+}
+
+blockquote p {
+  margin: 0;
+}
+
+blockquote:before {
+  content: '“';
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 64px;
+  line-height: 64px;
+}
+
+blockquote:after {
+  content: '”';
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 64px;
+  line-height: 64px;
+}
