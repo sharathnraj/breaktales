@@ -19,6 +19,7 @@ if (!spaceId || !accessToken) {
 module.exports = {
   siteMetadata: {
     title: 'Break Tales',
+    siteUrl: 'https://breaktales.life'
   },
   pathPrefix: '/gatsby-contentful-starter',
   plugins: [
@@ -27,6 +28,7 @@ module.exports = {
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sharp',
     'gatsby-alias-imports',
+    'gatsby-plugin-feed',
     {
       resolve: 'gatsby-source-contentful',
       options: contentfulConfig,
