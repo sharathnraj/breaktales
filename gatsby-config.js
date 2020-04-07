@@ -44,26 +44,23 @@ module.exports = {
         `,
         feeds: [
           {
-            serialize: ({ query: { site, allMarkdownRemark } }) => {
-              return allMarkdownRemark.edges.map(edge => {
+            serialize: ({ query: { site, allSitePage } }) => {
+              return allSitePage.edges.map(edge => {
                 return Object.assign({}, edge.node.frontmatter, {
-                  url: site.siteMetadata.siteUrl + edge.node.fields.slug,
-                  guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
-                  custom_elements: [{ "content:encoded": edge.node.html }]
+                  description: edge.node.path,
+                  url: site.siteMetadata.siteUrl + edge.node.path,
+                  guid: edge.node.path
                 })
               })
             },
             query: `
               {
-                allMarkdownRemark(
-                  sort: { order: DESC, fields: [frontmatter___title] },
-                ) {
+                allSitePage {
                   edges {
                     node {
-                      html
-                      fields { slug }
-                      frontmatter {
-                        title
+                      path
+                      context {
+                        slug
                       }
                     }
                   }

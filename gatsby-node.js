@@ -43,11 +43,11 @@ exports.createPages = ({ graphql, actions }) => {
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
-  if (node.internal.type === `MarkdownRemark`) {
+  if (node.internal.type === `SitePage`) {
     createNodeField({
-      name: `slug`,
+      name: `path`,
       node,
-      value: node.id
+      value: node.path
     })
   }
 }
