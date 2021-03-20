@@ -7,7 +7,7 @@ export default ({ person }) => (
   <Box textAlign="center" className={styles.person}>
     <Image
       size="250px"
-      src={person.image ? person.image.fluid.src : null}
+      src={person.image ? person.image.file.url : null}
       alt={person.name}
       fallbackSrc="https://via.placeholder.com/250"
     />

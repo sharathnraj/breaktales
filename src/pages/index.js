@@ -67,8 +67,8 @@ export const pageQuery = graphql`
           publishDate(formatString: "MMMM Do, YYYY")
           tags
           heroImage {
-            fluid {
-             ...GatsbyContentfulFluid_tracedSVG
+            file {
+              url
             }
           }
           description {
@@ -88,8 +88,8 @@ export const pageQuery = graphql`
           }
           title
           image {
-            fluid {
-              ...GatsbyContentfulFluid_tracedSVG
+            file {
+              url
             }
           }
         }
