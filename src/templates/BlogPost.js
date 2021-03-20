@@ -76,9 +76,6 @@ export const pageQuery = graphql`
         file {
           url
         }
-        fluid {
-          ...GatsbyContentfulFluid_tracedSVG
-        }
       }
       instagram
       body {
